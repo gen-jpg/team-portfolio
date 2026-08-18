@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Cta } from "@/components/cta";
+import { PageHeader } from "@/components/page-header";
 import { ProjectCard } from "@/components/project-card";
+import { Reveal } from "@/components/reveal";
 import { projects } from "@/lib/projects";
 
 export const metadata: Metadata = {
@@ -12,24 +14,18 @@ export const metadata: Metadata = {
 export default function WorkPage() {
   return (
     <>
-      <section className="section-pad !pb-10">
-        <div className="container-page max-w-3xl">
-          <p className="eyebrow">Work</p>
-          <h1 className="heading-display mt-3">Selected work & patterns</h1>
-          <p className="body-muted mt-5">
-            We&apos;re building out public case studies. Until then, these
-            placeholders show the kinds of systems we design and deliver—ready
-            for real project writeups and SEO landing pages.
-          </p>
-        </div>
-      </section>
+      <PageHeader
+        eyebrow="Work"
+        title="Selected work & patterns"
+        body="We're building out public case studies. Until then, these placeholders show the kinds of systems we design and deliver—ready for real project writeups and SEO landing pages."
+      />
 
-      <section className="pb-20">
-        <div className="container-page grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+      <section className="pb-16 sm:pb-20">
+        <Reveal stagger className="container-page grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((project) => (
             <ProjectCard key={project.slug} project={project} />
           ))}
-        </div>
+        </Reveal>
       </section>
 
       <Cta

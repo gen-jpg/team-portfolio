@@ -9,31 +9,49 @@ const config: Config = {
     extend: {
       colors: {
         cream: {
-          DEFAULT: "#F9F7F2",
-          soft: "#F3EFE7",
-          muted: "#E8E2D6",
+          DEFAULT: "#FDFCFA",
+          soft: "#EFEBE4",
+          muted: "#C1BAAC",
         },
         ink: {
-          DEFAULT: "#1C1917",
-          soft: "#44403C",
-          muted: "#78716C",
+          DEFAULT: "#29373B",
+          soft: "#4A5558",
+          muted: "#989082",
         },
         accent: {
-          DEFAULT: "#704C38",
-          hover: "#5A3C2C",
-          soft: "#8B6A55",
+          DEFAULT: "#419C93",
+          hover: "#486764",
+          soft: "#D7EBE8",
         },
+        forest: {
+          DEFAULT: "#486764",
+          hover: "#3A5452",
+        },
+        taupe: "#989082",
+        greige: "#C1BAAC",
       },
       fontFamily: {
-        display: ["var(--font-display)", "system-ui", "sans-serif"],
+        display: ["var(--font-display)", "Georgia", "serif"],
         sans: ["var(--font-body)", "system-ui", "sans-serif"],
+        ui: ["var(--font-ui)", "system-ui", "sans-serif"],
       },
       boxShadow: {
-        soft: "0 8px 30px rgba(28, 25, 23, 0.06)",
-        card: "0 4px 20px rgba(28, 25, 23, 0.04)",
+        soft: "0 22px 55px rgba(41, 55, 59, 0.10)",
+        card: "0 14px 40px rgba(41, 55, 59, 0.06)",
+        lift: "0 18px 48px rgba(41, 55, 59, 0.12)",
+      },
+      spacing: {
+        22: "5.5rem",
       },
       maxWidth: {
-        content: "72rem",
+        content: "76rem",
+      },
+      letterSpacing: {
+        label: "0.22em",
+      },
+      borderRadius: {
+        card: "1.75rem",
+        banner: "2rem",
       },
     },
   },

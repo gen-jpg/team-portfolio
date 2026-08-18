@@ -11,7 +11,7 @@ function Icon({ type }: { type: NonNullable<ServiceCardProps["icon"]> }) {
     viewBox: "0 0 24 24",
     fill: "none",
     stroke: "currentColor",
-    strokeWidth: 1.6,
+    strokeWidth: 1.5,
     strokeLinecap: "round" as const,
     strokeLinejoin: "round" as const,
   };
@@ -50,12 +50,12 @@ function Icon({ type }: { type: NonNullable<ServiceCardProps["icon"]> }) {
 
 export function ServiceCard({ title, body, icon = "build" }: ServiceCardProps) {
   return (
-    <article className="card-surface flex h-full flex-col p-6 sm:p-7">
-      <div className="flex h-11 w-11 items-center justify-center rounded-full bg-accent/10 text-accent">
+    <article className="card-surface card-hover flex h-full flex-col p-7 sm:p-8">
+      <div className="flex h-12 w-12 items-center justify-center rounded-full border border-cream-muted/80 text-accent">
         <Icon type={icon} />
       </div>
-      <h3 className="mt-5 font-display text-lg font-bold text-ink">{title}</h3>
-      <p className="mt-2 flex-1 text-sm leading-relaxed text-ink-muted">{body}</p>
+      <h3 className="heading-ui mt-6">{title}</h3>
+      <p className="mt-3 flex-1 font-sans text-sm leading-relaxed text-ink-muted">{body}</p>
     </article>
   );
 }

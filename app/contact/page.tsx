@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ContactForm } from "@/components/contact-form";
+import { Reveal } from "@/components/reveal";
 import { finalCta } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -10,30 +11,34 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <section className="section-pad">
+    <section className="section-pad !pt-12 sm:!pt-16">
       <div className="container-page grid items-start gap-12 lg:grid-cols-[0.95fr_1.05fr]">
-        <div>
+        <Reveal>
           <p className="eyebrow">Contact</p>
-          <h1 className="heading-display mt-3">{finalCta.title}</h1>
+          <h1 className="heading-display mt-4">{finalCta.title}</h1>
           <div className="mt-5 space-y-2 body-muted">
             {finalCta.lines.map((line) => (
               <p key={line}>{line}</p>
             ))}
           </div>
-          <p className="mt-5 text-base font-medium text-ink">
+          <p className="mt-5 font-sans text-base font-medium text-ink">
             {finalCta.emphasis}
           </p>
-          <p className="mt-2 text-ink-muted">{finalCta.closing}</p>
-          <div className="mt-8 rounded-2xl border border-cream-muted bg-cream-soft/70 p-5 text-sm text-ink-soft">
-            <p className="font-medium text-ink">What happens next</p>
-            <ol className="mt-3 list-decimal space-y-1.5 pl-4">
+          <p className="mt-2 font-sans text-ink-muted">{finalCta.closing}</p>
+          <div className="banner-band mt-8 text-left">
+            <p className="font-ui text-sm font-semibold tracking-wide text-ink">
+              What happens next
+            </p>
+            <ol className="mt-3 list-decimal space-y-1.5 pl-4 font-sans text-sm text-ink-soft">
               <li>We review your brief</li>
               <li>We schedule a consultation if it&apos;s a fit</li>
               <li>We outline scope, approach, and a quotation path</li>
             </ol>
           </div>
-        </div>
-        <ContactForm />
+        </Reveal>
+        <Reveal>
+          <ContactForm />
+        </Reveal>
       </div>
     </section>
   );

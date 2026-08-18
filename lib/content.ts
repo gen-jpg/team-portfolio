@@ -1,7 +1,7 @@
 export const brand = {
-  name: "Habi³",
+  name: "HABI³",
   placeholder: "by ASG",
-  fullName: "Habi³ by ASG",
+  fullName: "HABI³ by ASG",
   initials: "H",
   siteUrl: "https://habibyasg.com",
   tagline: "From idea to working software.",
@@ -456,22 +456,25 @@ export const team = {
   cycle: "Business → Requirements → Development → Testing → Launch",
   members: [
     {
-      name: "Shey",
-      role: "Business Analyst & Quality Assurance",
-      bio: "Handles client requirements, business process analysis, MVP planning, functional documentation, QA testing, UAT support, and user documentation.",
-      initials: "SH",
-    },
-    {
-      name: "Genevive",
-      role: "Software Developer",
-      bio: "Handles technical planning, system architecture, frontend and backend development, database implementation, integrations, deployment, and technical support.",
-      initials: "GE",
-    },
-    {
-      name: "Arthur",
-      role: "Software Developer",
+      name: "Arth",
+      role: "Frontend Designer & Deployment Engineer",
       bio: "Specializes in frontend development and deployment—building responsive interfaces, implementing UI/UX designs, and shipping applications to production.",
       initials: "AR",
+      photo: "/images/team/arth.jpg",
+    },
+    {
+      name: "Shey",
+      role: "Business Analyst & QA Engineer",
+      bio: "Handles client requirements, business process analysis, MVP planning, functional documentation, QA testing, UAT support, and user documentation.",
+      initials: "SH",
+      photo: "/images/team/shey.jpg",
+    },
+    {
+      name: "Gen",
+      role: "Backend Systems & Integration Engineer",
+      bio: "Handles technical planning, system architecture, backend development, database implementation, integrations, and technical support.",
+      initials: "GE",
+      photo: "/images/team/gen.png",
     },
   ],
 };

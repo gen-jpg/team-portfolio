@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Cta } from "@/components/cta";
+import { PageHeader } from "@/components/page-header";
 import { Process } from "@/components/process";
+import { Reveal } from "@/components/reveal";
+import { SectionIntro } from "@/components/section-intro";
 import { ServiceCard } from "@/components/service-card";
 import {
   coreAdvantage,
@@ -21,16 +24,10 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <>
-      <section className="section-pad !pb-12">
-        <div className="container-page max-w-3xl">
-          <p className="eyebrow">Services</p>
-          <h1 className="heading-display mt-3">{servicesIntro.title}</h1>
-          <p className="body-muted mt-5">{servicesIntro.body}</p>
-        </div>
-      </section>
+      <PageHeader eyebrow="Services" title={servicesIntro.title} body={servicesIntro.body} />
 
-      <section className="pb-20">
-        <div className="container-page grid gap-5 md:grid-cols-3">
+      <section className="pb-16 sm:pb-20">
+        <Reveal stagger className="container-page grid gap-5 md:grid-cols-3">
           {services.map((s) => (
             <ServiceCard
               key={s.id}
@@ -39,46 +36,39 @@ export default function ServicesPage() {
               icon={s.icon}
             />
           ))}
-        </div>
+        </Reveal>
       </section>
 
-      <section className="section-pad bg-white/50">
+      <Reveal as="section" className="section-pad bg-cream-soft/60">
         <div className="container-page">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="heading-section">{coreAdvantage.title}</h2>
-            <p className="body-muted mt-4">{coreAdvantage.body}</p>
-          </div>
-          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <SectionIntro title={coreAdvantage.title} body={coreAdvantage.body} />
+          <Reveal stagger className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {coreAdvantage.pillars.map((p) => (
               <article key={p.label} className="card-surface p-6">
-                <p className="text-xs font-bold uppercase tracking-[0.16em] text-accent">
+                <p className="font-ui text-[11px] font-semibold uppercase tracking-[0.18em] text-accent">
                   {p.label}
                 </p>
-                <h3 className="mt-2 font-display text-lg font-bold text-ink">
-                  {p.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-ink-muted">
+                <h3 className="heading-ui mt-3 text-base">{p.title}</h3>
+                <p className="mt-2 font-sans text-sm leading-relaxed text-ink-muted">
                   {p.body}
                 </p>
               </article>
             ))}
-          </div>
+          </Reveal>
         </div>
-      </section>
+      </Reveal>
 
-      <section className="section-pad">
+      <Reveal as="section" className="section-pad">
         <div className="container-page">
-          <h2 className="heading-section text-center">
-            We&apos;re with you every step of the way
-          </h2>
-          <p className="body-muted mx-auto mt-4 max-w-2xl text-center">
-            Pre-development through post-launch—kept visible and accountable.
-          </p>
+          <SectionIntro
+            title="We're with you every step of the way"
+            body="Pre-development through post-launch—kept visible and accountable."
+          />
           <div className="mt-12">
             <Process variant="phases" />
           </div>
         </div>
-      </section>
+      </Reveal>
 
       <DetailBlock
         title={preDevelopment.title}
@@ -103,9 +93,9 @@ export default function ServicesPage() {
             title="Ready to start with a consultation?"
             body="You don't need a full technical brief—just tell us what you want to improve."
           />
-          <p className="mt-6 text-center text-sm text-ink-muted">
+          <p className="mt-6 text-center font-sans text-sm text-ink-muted">
             Prefer to browse systems first?{" "}
-            <Link href="/solutions" className="font-semibold text-accent">
+            <Link href="/solutions" className="font-ui font-semibold text-accent hover:text-forest">
               View solutions
             </Link>
           </p>
@@ -127,23 +117,21 @@ function DetailBlock({
   alt?: boolean;
 }) {
   return (
-    <section className={`section-pad ${alt ? "bg-white/50" : ""}`}>
+    <Reveal as="section" className={`section-pad ${alt ? "bg-cream-soft/60" : ""}`}>
       <div className="container-page max-w-4xl">
         <h2 className="heading-section">{title}</h2>
         {intro && <p className="body-muted mt-4">{intro}</p>}
-        <div className="mt-10 grid gap-4 sm:grid-cols-2">
+        <Reveal stagger className="mt-10 grid gap-4 sm:grid-cols-2">
           {items.map((item) => (
-            <article key={item.title} className="card-surface p-5">
-              <h3 className="font-display text-base font-bold text-ink">
-                {item.title}
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-ink-muted">
+            <article key={item.title} className="card-surface p-6">
+              <h3 className="heading-ui text-base">{item.title}</h3>
+              <p className="mt-2 font-sans text-sm leading-relaxed text-ink-muted">
                 {item.body}
               </p>
             </article>
           ))}
-        </div>
+        </Reveal>
       </div>
-    </section>
+    </Reveal>
   );
 }

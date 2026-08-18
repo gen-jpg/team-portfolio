@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Cta } from "@/components/cta";
+import { PageHeader } from "@/components/page-header";
+import { PrimaryButton } from "@/components/primary-button";
+import { Reveal } from "@/components/reveal";
+import { SectionIntro } from "@/components/section-intro";
 import { TeamMember } from "@/components/team-member";
 import { audiences, team } from "@/lib/content";
 
@@ -13,49 +16,49 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <section className="section-pad !pb-10">
-        <div className="container-page max-w-3xl">
-          <p className="eyebrow">About</p>
-          <h1 className="heading-display mt-3">{team.title}</h1>
-          <p className="body-muted mt-5">{team.intro}</p>
-          <p className="mt-4 text-base font-medium text-ink-soft">
-            We&apos;re a small team with a complete development cycle:{" "}
-            <span className="text-accent">{team.cycle}</span>
-          </p>
-        </div>
-      </section>
+      <PageHeader
+        eyebrow="About"
+        title={team.title}
+        body={
+          <>
+            <p>{team.intro}</p>
+            <p className="mt-4 font-sans text-base font-medium text-ink-soft">
+              We&apos;re a small team with a complete development cycle:{" "}
+              <span className="text-accent">{team.cycle}</span>
+            </p>
+          </>
+        }
+      />
 
-      <section className="pb-20">
-        <div className="container-page mx-auto grid max-w-4xl gap-5">
+      <section className="pb-16 sm:pb-20">
+        <Reveal stagger className="container-page mx-auto grid max-w-4xl gap-5">
           {team.members.map((m) => (
             <TeamMember key={m.name} {...m} />
           ))}
-        </div>
+        </Reveal>
       </section>
 
-      <section className="section-pad bg-white/50">
+      <Reveal as="section" className="section-pad bg-cream-soft/60">
         <div className="container-page">
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="eyebrow">Who we work with</p>
-            <h2 className="heading-section mt-3">{audiences.title}</h2>
-            <p className="body-muted mt-4">{audiences.intro}</p>
-          </div>
-          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <SectionIntro
+            eyebrow="Who we work with"
+            title={audiences.title}
+            body={audiences.intro}
+          />
+          <Reveal stagger className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {audiences.items.map((item) => (
-              <article key={item.title} className="card-surface p-5">
-                <h3 className="font-display text-base font-bold text-ink">
-                  {item.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-ink-muted">
+              <article key={item.title} className="card-surface p-6">
+                <h3 className="heading-ui text-base">{item.title}</h3>
+                <p className="mt-2 font-sans text-sm leading-relaxed text-ink-muted">
                   {item.body}
                 </p>
               </article>
             ))}
-          </div>
+          </Reveal>
         </div>
-      </section>
+      </Reveal>
 
-      <section className="section-pad">
+      <Reveal as="section" className="section-pad">
         <div className="container-page max-w-3xl text-center">
           <h2 className="heading-section">
             Small team. Big commitment to clarity.
@@ -64,11 +67,11 @@ export default function AboutPage() {
             Direct communication, business-first scoping, dedicated QA, and
             documentation included—so your system is usable long after launch.
           </p>
-          <Link href="/contact" className="btn-primary mt-8">
-            Discuss Your Project
-          </Link>
+          <div className="mt-8 flex justify-center">
+            <PrimaryButton href="/contact">Discuss Your Project</PrimaryButton>
+          </div>
         </div>
-      </section>
+      </Reveal>
 
       <Cta />
     </>

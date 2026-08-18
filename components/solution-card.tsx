@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CheckLine } from "@/components/icons";
 import { SolutionMockup } from "@/components/ui-mockups/solution-mockup";
 
 type SolutionCardProps = {
@@ -23,21 +24,23 @@ export function SolutionCard({
   const link = href ?? `/solutions/${slug}`;
 
   return (
-    <article className="card-surface group flex h-full flex-col overflow-hidden">
-      <div className="border-b border-cream-muted bg-cream-soft/60 p-5">
+    <article className="card-surface card-hover group flex h-full flex-col overflow-hidden">
+      <div className="border-b border-cream-muted/60 bg-cream-soft/70 p-5">
         <SolutionMockup variant={mockup} />
       </div>
-      <div className="flex flex-1 flex-col p-6">
-        <h3 className="font-display text-lg font-bold text-ink">{title}</h3>
-        <p className="mt-2 text-sm leading-relaxed text-ink-muted">{short}</p>
+      <div className="flex flex-1 flex-col p-6 sm:p-7">
+        <h3 className="heading-ui text-base sm:text-lg">{title}</h3>
+        <p className="mt-2 font-sans text-sm leading-relaxed text-ink-muted">{short}</p>
         {showFeatures && features.length > 0 && (
-          <ul className="mt-4 grid gap-1.5 sm:grid-cols-2">
+          <ul className="mt-5 grid gap-2 sm:grid-cols-2">
             {features.slice(0, 6).map((f) => (
               <li
                 key={f}
-                className="flex items-start gap-2 text-xs text-ink-soft"
+                className="flex items-start gap-2 font-sans text-xs text-ink-soft"
               >
-                <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                <span className="mt-0.5 text-accent">
+                  <CheckLine className="h-3.5 w-3.5" />
+                </span>
                 {f}
               </li>
             ))}
@@ -45,7 +48,7 @@ export function SolutionCard({
         )}
         <Link
           href={link}
-          className="mt-5 inline-flex text-sm font-semibold text-accent transition group-hover:text-accent-hover"
+          className="mt-6 inline-flex font-ui text-[12px] font-semibold uppercase tracking-[0.16em] text-accent transition group-hover:text-forest"
         >
           Learn more →
         </Link>

@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Cta } from "@/components/cta";
+import { CheckLine } from "@/components/icons";
+import { PrimaryButton } from "@/components/primary-button";
+import { Reveal } from "@/components/reveal";
 import { SolutionMockup } from "@/components/ui-mockups/solution-mockup";
 import { getSolutionBySlug, solutions } from "@/lib/content";
 
@@ -30,38 +33,38 @@ export default async function SolutionDetailPage({ params }: Props) {
     <>
       <section className="section-pad">
         <div className="container-page grid items-start gap-10 lg:grid-cols-2">
-          <div>
+          <Reveal>
             <p className="eyebrow">
-              <Link href="/solutions" className="hover:text-accent-hover">
+              <Link href="/solutions" className="hover:text-forest">
                 Solutions
               </Link>
             </p>
-            <h1 className="heading-display mt-3">{solution.title}</h1>
+            <h1 className="heading-display mt-4">{solution.title}</h1>
             <p className="body-muted mt-5">{solution.short}</p>
-            <ul className="mt-8 space-y-2.5">
+            <ul className="mt-8 space-y-3">
               {solution.features.map((f) => (
-                <li key={f} className="flex items-start gap-2.5 text-sm text-ink-soft">
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                <li key={f} className="flex items-start gap-2.5 font-sans text-sm text-ink-soft">
+                  <span className="mt-0.5 text-accent">
+                    <CheckLine className="h-4 w-4" />
+                  </span>
                   {f}
                 </li>
               ))}
             </ul>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link href="/contact" className="btn-primary">
-                Discuss Your Project
-              </Link>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <PrimaryButton href="/contact">Discuss Your Project</PrimaryButton>
               <Link href="/solutions" className="btn-secondary">
                 All Solutions
               </Link>
             </div>
-            <p className="mt-6 text-sm text-ink-muted">
+            <p className="mt-6 font-sans text-sm text-ink-muted">
               Full case studies and deeper product pages will expand here as we
               publish more detail for SEO and lead generation.
             </p>
-          </div>
-          <div className="card-surface p-6">
+          </Reveal>
+          <Reveal className="card-surface p-6 sm:p-8">
             <SolutionMockup variant={solution.mockup} />
-          </div>
+          </Reveal>
         </div>
       </section>
       <Cta
