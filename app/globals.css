@@ -309,3 +309,13 @@ body {
     transition: none !important;
   }
 }
+
+/* Ink (not taupe/teal) so browser dark-mode inversion becomes light-on-taupe */
+.banner-band .eyebrow,
+.banner-band .heading-section,
+.banner-band .heading-ui,
+.banner-band .body-muted,
+.banner-band p,
+.banner-band li {
+  color: #29373b;
+}

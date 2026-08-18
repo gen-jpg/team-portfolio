@@ -38,14 +38,17 @@ export function Navbar() {
   }
 
   return (
-    <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "border-b border-cream-muted/80 bg-cream/90 backdrop-blur-md"
-          : "border-b border-transparent bg-cream/70 backdrop-blur-sm"
-      }`}
-    >
-      <div className="container-page grid h-[4.25rem] grid-cols-[1fr_auto] items-center lg:grid-cols-[1fr_auto_1fr]">
+    <header className="sticky top-0 z-50">
+      <div
+        className={`transition-all duration-300 ${
+          open
+            ? "border-b border-cream-muted/80 bg-cream"
+            : scrolled
+              ? "border-b border-cream-muted/80 bg-cream/90 backdrop-blur-md"
+              : "border-b border-transparent bg-cream/70 backdrop-blur-sm"
+        }`}
+      >
+        <div className="container-page grid h-[4.25rem] grid-cols-[1fr_auto] items-center lg:grid-cols-[1fr_auto_1fr]">
         <nav className="hidden items-center gap-6 xl:gap-8 lg:flex" aria-label="Primary left">
           {leftLinks.map((link) => (
             <NavItem key={link.href} href={link.href} label={link.label} active={isActive(link.href)} />
@@ -93,6 +96,7 @@ export function Navbar() {
             )}
           </svg>
         </button>
+        </div>
       </div>
 
       {open && (
