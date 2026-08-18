@@ -32,12 +32,29 @@ export const metadata: Metadata = {
   },
   description:
     "A small software team that turns ideas and manual processes into reliable custom systems—business analysis, development, QA, and documentation.",
+  icons: {
+    icon: "/icon.png",
+    apple: "/apple-icon.png",
+  },
   openGraph: {
     title: `${brand.fullName} — Custom Business Software`,
     description:
       "From requirements and MVP planning to development, QA, and launch.",
     type: "website",
     siteName: brand.fullName,
+    url: brand.siteUrl,
+    images: [
+      {
+        url: "/images/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "HABI³ Software & Systems Studio",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/images/og-image.png"],
   },
 };
 
