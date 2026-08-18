@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useEffect, useState } from "react";
+import { ArrowMark } from "@/components/icons";
 import { solutions } from "@/lib/content";
 
 type Status = "idle" | "submitting" | "error";
@@ -90,43 +91,47 @@ export function ContactForm() {
         noValidate
       >
         <div className="grid gap-5 sm:grid-cols-2">
-          <label className="block text-sm">
-            <span className="font-medium text-ink">Name *</span>
+          <label className="block">
+            <span className="font-ui text-[12px] font-medium uppercase tracking-[0.14em] text-ink">
+              Name *
+            </span>
             <input
               name="name"
               required
               autoComplete="name"
-              className="mt-1.5 w-full rounded-lg border border-cream-muted bg-cream px-3.5 py-2.5 text-ink outline-none transition focus:border-accent focus:ring-2 focus:ring-accent/20"
+              className="input-field"
             />
           </label>
-          <label className="block text-sm">
-            <span className="font-medium text-ink">Email *</span>
+          <label className="block">
+            <span className="font-ui text-[12px] font-medium uppercase tracking-[0.14em] text-ink">
+              Email *
+            </span>
             <input
               name="email"
               type="email"
               required
               autoComplete="email"
-              className="mt-1.5 w-full rounded-lg border border-cream-muted bg-cream px-3.5 py-2.5 text-ink outline-none transition focus:border-accent focus:ring-2 focus:ring-accent/20"
+              className="input-field"
             />
           </label>
         </div>
 
         <div className="grid gap-5 sm:grid-cols-2">
-          <label className="block text-sm">
-            <span className="font-medium text-ink">Company</span>
+          <label className="block">
+            <span className="font-ui text-[12px] font-medium uppercase tracking-[0.14em] text-ink">
+              Company
+            </span>
             <input
               name="company"
               autoComplete="organization"
-              className="mt-1.5 w-full rounded-lg border border-cream-muted bg-cream px-3.5 py-2.5 text-ink outline-none transition focus:border-accent focus:ring-2 focus:ring-accent/20"
+              className="input-field"
             />
           </label>
-          <label className="block text-sm">
-            <span className="font-medium text-ink">Project type</span>
-            <select
-              name="project_type"
-              defaultValue=""
-              className="mt-1.5 w-full rounded-lg border border-cream-muted bg-cream px-3.5 py-2.5 text-ink outline-none transition focus:border-accent focus:ring-2 focus:ring-accent/20"
-            >
+          <label className="block">
+            <span className="font-ui text-[12px] font-medium uppercase tracking-[0.14em] text-ink">
+              Project type
+            </span>
+            <select name="project_type" defaultValue="" className="input-field">
               <option value="">Select an option</option>
               {solutions.map((s) => (
                 <option key={s.slug} value={s.title}>
@@ -138,19 +143,24 @@ export function ContactForm() {
           </label>
         </div>
 
-        <label className="block text-sm">
-          <span className="font-medium text-ink">Project brief *</span>
+        <label className="block">
+          <span className="font-ui text-[12px] font-medium uppercase tracking-[0.14em] text-ink">
+            Project brief *
+          </span>
           <textarea
             name="message"
             required
             rows={5}
             placeholder="Tell us about the problem, current process, or idea you want to explore."
-            className="mt-1.5 w-full resize-y rounded-lg border border-cream-muted bg-cream px-3.5 py-2.5 text-ink outline-none transition focus:border-accent focus:ring-2 focus:ring-accent/20"
+            className="input-field resize-y"
           />
         </label>
 
         {error && (
-          <p className="text-sm text-red-700" role="alert">
+          <p
+            className="rounded-2xl border border-cream-muted bg-cream-soft px-4 py-3 font-sans text-sm text-ink"
+            role="alert"
+          >
             {error}
           </p>
         )}
@@ -160,7 +170,11 @@ export function ContactForm() {
           className="btn-primary w-full sm:w-auto"
           disabled={status === "submitting"}
         >
-          {status === "submitting" ? "Submitting…" : "Discuss Your Project"}
+          <span className="btn-primary-mark">
+            <ArrowMark />
+          </span>
+          <span className="btn-primary-rule" />
+          <span>{status === "submitting" ? "Submitting…" : "Discuss Your Project"}</span>
         </button>
       </form>
 
@@ -169,32 +183,36 @@ export function ContactForm() {
           <button
             type="button"
             aria-label="Close"
-            className="absolute inset-0 bg-ink/40"
+            className="absolute inset-0 bg-ink/40 backdrop-blur-[2px]"
             onClick={() => setShowSuccess(false)}
           />
           <div
             role="dialog"
             aria-modal="true"
             aria-labelledby="inquiry-success-title"
-            className="card-surface relative w-full max-w-md p-6 sm:p-8"
+            className="card-surface relative w-full max-w-md p-7 sm:p-9"
           >
             <p className="eyebrow">Thank you</p>
             <h2
               id="inquiry-success-title"
-              className="heading-section mt-2 text-2xl sm:text-3xl"
+              className="heading-section mt-3 text-3xl"
             >
               Inquiry received
             </h2>
-            <p className="mt-3 text-base leading-relaxed text-ink-muted">
+            <p className="mt-3 font-sans text-base leading-relaxed text-ink-muted">
               Your inquiry has been received by our team. We&apos;ll review your
               brief and get back to you soon.
             </p>
             <button
               type="button"
-              className="btn-primary mt-6 w-full sm:w-auto"
+              className="btn-primary mt-7"
               onClick={() => setShowSuccess(false)}
             >
-              Close
+              <span className="btn-primary-mark">
+                <ArrowMark />
+              </span>
+              <span className="btn-primary-rule" />
+              <span>Close</span>
             </button>
           </div>
         </div>

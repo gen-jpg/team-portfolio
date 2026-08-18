@@ -1,19 +1,26 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Source_Sans_3 } from "next/font/google";
+import { Cormorant_Garamond, Josefin_Sans, Montserrat } from "next/font/google";
+import { Atmosphere } from "@/components/atmosphere";
 import { Footer } from "@/components/footer";
 import { Navbar } from "@/components/navbar";
 import { brand } from "@/lib/content";
 import "./globals.css";
 
-const display = Plus_Jakarta_Sans({
+const display = Cormorant_Garamond({
   subsets: ["latin"],
   variable: "--font-display",
-  weight: ["500", "600", "700", "800"],
+  weight: ["500", "600", "700"],
 });
 
-const body = Source_Sans_3({
+const body = Montserrat({
   subsets: ["latin"],
   variable: "--font-body",
+  weight: ["400", "500", "600"],
+});
+
+const ui = Josefin_Sans({
+  subsets: ["latin"],
+  variable: "--font-ui",
   weight: ["400", "500", "600", "700"],
 });
 
@@ -40,10 +47,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${display.variable} ${body.variable}`}>
-      <body className="min-h-screen bg-cream font-sans antialiased">
+    <html
+      lang="en"
+      className={`${display.variable} ${body.variable} ${ui.variable}`}
+    >
+      <body className="relative min-h-screen bg-cream font-sans text-ink antialiased">
+        <Atmosphere />
         <Navbar />
-        <main>{children}</main>
+        <main className="relative z-[1]">{children}</main>
         <Footer />
       </body>
     </html>
