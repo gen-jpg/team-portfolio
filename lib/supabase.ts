@@ -14,7 +14,7 @@ export function getSupabase(): SupabaseClient | null {
   if (client !== undefined) return client;
 
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  const key = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
 
   if (!url || !key) {
     client = null;
@@ -25,13 +25,13 @@ export function getSupabase(): SupabaseClient | null {
   return client;
 }
 
-/** Inserts into `inquiries` when Supabase is configured; otherwise returns skipped. */
+/** Inserts into `inquiries` when Supabase is configured. */
 export async function saveInquiry(
   payload: InquiryPayload,
 ): Promise<{ ok: boolean; skipped?: boolean; error?: string }> {
   const supabase = getSupabase();
   if (!supabase) {
-    return { ok: true, skipped: true };
+    return { ok: false, skipped: true, error: "Inquiry service is not configured." };
   }
 
   const { error } = await supabase.from("inquiries").insert({
@@ -47,33 +47,4 @@ export async function saveInquiry(
   }
 
   return { ok: true };
-}
-
-export function buildMailto({
-  name,
-  email,
-  company,
-  project_type,
-  message,
-}: InquiryPayload): string {
-  const to =
-    process.env.NEXT_PUBLIC_CONTACT_EMAIL || "hello@studio.example";
-  const subject = encodeURIComponent(
-    `Project inquiry${project_type ? ` — ${project_type}` : ""} from ${name}`,
-  );
-  const body = encodeURIComponent(
-    [
-      `Name: ${name}`,
-      `Email: ${email}`,
-      company ? `Company: ${company}` : null,
-      project_type ? `Project type: ${project_type}` : null,
-      "",
-      "Message:",
-      message,
-    ]
-      .filter(Boolean)
-      .join("\n"),
-  );
-
-  return `mailto:${to}?subject=${subject}&body=${body}`;
 }
