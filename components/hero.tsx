@@ -30,7 +30,7 @@ export function Hero() {
           </p>
         </div>
 
-        <div className="animate-fade-up animate-delay-2 relative pb-10">
+        <div className="animate-fade-up animate-delay-2 relative hidden pb-10 lg:block">
           <HeroMockup />
         </div>
       </div>

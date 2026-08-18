@@ -12,6 +12,7 @@ import { ServiceCard } from "@/components/service-card";
 import { SolutionCard } from "@/components/solution-card";
 import { TeamMember } from "@/components/team-member";
 import {
+  brand,
   coreAdvantage,
   documentationSupport,
   services,
@@ -186,12 +187,27 @@ export default function HomePage() {
 
       <Reveal as="section" className="section-pad bg-cream-soft/60">
         <div className="container-page">
-          <SectionIntro eyebrow="The team" title={team.title} body={team.intro} />
-          <Reveal stagger className="mt-12 grid gap-5 md:grid-cols-3">
-            {team.members.map((m) => (
-              <TeamMember key={m.name} variant="card" {...m} />
-            ))}
-          </Reveal>
+          <SectionIntro eyebrow="The Team" title={team.title} body={team.intro} />
+          <div className="mt-12">
+            <p className="eyebrow mb-3 text-center">
+              {brand.name} by
+            </p>
+            <div className="mb-4 grid grid-cols-3" aria-hidden>
+              {team.members.map((m) => (
+                <p
+                  key={m.name}
+                  className="text-center font-display text-6xl font-semibold leading-none tracking-tight text-accent lg:text-7xl"
+                >
+                  {m.name.slice(0, 1)}
+                </p>
+              ))}
+            </div>
+            <Reveal stagger className="grid gap-5 md:grid-cols-3">
+              {team.members.map((m) => (
+                <TeamMember key={m.name} variant="card" {...m} />
+              ))}
+            </Reveal>
+          </div>
           <p className="mt-8 text-center font-sans text-sm font-medium text-ink-soft">
             Together: <span className="text-accent">{team.cycle}</span>
           </p>

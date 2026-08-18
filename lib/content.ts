@@ -457,24 +457,27 @@ export const team = {
   members: [
     {
       name: "Arth",
-      role: "Frontend Designer & Deployment Engineer",
-      bio: "Specializes in frontend development and deployment—building responsive interfaces, implementing UI/UX designs, and shipping applications to production.",
-      initials: "AR",
+      role: "Full-Stack Developer & Deployment Engineer",
+      bio: "Specializes in full-stack development and deployment—building interfaces and application logic, implementing UI/UX designs, and shipping systems to production.",
+      initials: "A",
       photo: "/images/team/arth.jpg",
+      mbti: "INTP-T",
     },
     {
       name: "Shey",
       role: "Business Analyst & QA Engineer",
       bio: "Handles client requirements, business process analysis, MVP planning, functional documentation, QA testing, UAT support, and user documentation.",
-      initials: "SH",
+      initials: "S",
       photo: "/images/team/sherl.jpg",
+      mbti: "INFJ-T",
     },
     {
       name: "Gen",
       role: "Backend Systems & Integration Engineer",
       bio: "Handles technical planning, system architecture, backend development, database implementation, integrations, and technical support.",
-      initials: "GE",
+      initials: "G",
       photo: "/images/team/gen.png",
+      mbti: "INTJ-A",
     },
   ],
 };

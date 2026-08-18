@@ -5,7 +5,7 @@ import { PrimaryButton } from "@/components/primary-button";
 import { Reveal } from "@/components/reveal";
 import { SectionIntro } from "@/components/section-intro";
 import { TeamMember } from "@/components/team-member";
-import { audiences, team } from "@/lib/content";
+import { audiences, brand, team } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "About",
@@ -31,11 +31,29 @@ export default function AboutPage() {
       />
 
       <section className="pb-16 sm:pb-20">
-        <Reveal stagger className="container-page mx-auto grid max-w-4xl gap-5">
-          {team.members.map((m) => (
-            <TeamMember key={m.name} {...m} />
-          ))}
-        </Reveal>
+        <div className="container-page mx-auto max-w-4xl">
+          <p className="eyebrow mb-3 text-center">
+            {brand.name} by
+          </p>
+          <p
+            className="mb-8 flex justify-center gap-10 sm:gap-14"
+            aria-label="ASG"
+          >
+            {team.members.map((m) => (
+              <span
+                key={m.name}
+                className="font-display text-5xl font-semibold leading-none text-accent sm:text-6xl"
+              >
+                {m.name.slice(0, 1)}
+              </span>
+            ))}
+          </p>
+          <Reveal stagger className="grid gap-5">
+            {team.members.map((m) => (
+              <TeamMember key={m.name} {...m} />
+            ))}
+          </Reveal>
+        </div>
       </section>
 
       <Reveal as="section" className="section-pad bg-cream-soft/60">

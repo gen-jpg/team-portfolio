@@ -6,6 +6,7 @@ type TeamMemberProps = {
   bio: string;
   initials: string;
   photo?: string;
+  mbti?: string;
   variant?: "profile" | "card";
 };
 
@@ -15,6 +16,7 @@ export function TeamMember({
   bio,
   initials,
   photo,
+  mbti,
   variant = "profile",
 }: TeamMemberProps) {
   const isCard = variant === "card";
@@ -50,9 +52,17 @@ export function TeamMember({
         </div>
       )}
       <div className="min-w-0">
-        <h3 className="font-ui text-base font-semibold tracking-wide text-ink sm:text-lg">
-          {name}
-        </h3>
+        <div className="flex flex-wrap items-baseline gap-x-2.5 gap-y-1">
+          <h3 className="font-ui text-base font-semibold tracking-wide text-ink sm:text-lg">
+            <span className="text-accent">{name.slice(0, 1)}</span>
+            {name.slice(1)}
+          </h3>
+          {mbti && (
+            <span className="font-ui text-[11px] font-semibold uppercase tracking-[0.16em] text-accent">
+              {mbti}
+            </span>
+          )}
+        </div>
         <p className="mt-1 font-sans text-sm font-medium text-ink-muted">{role}</p>
         <p className="mt-3 font-sans text-sm leading-relaxed text-ink-muted">{bio}</p>
       </div>
