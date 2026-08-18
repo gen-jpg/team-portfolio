@@ -467,7 +467,7 @@ export const team = {
       role: "Business Analyst & QA Engineer",
       bio: "Handles client requirements, business process analysis, MVP planning, functional documentation, QA testing, UAT support, and user documentation.",
       initials: "SH",
-      photo: "/images/team/shey.jpg",
+      photo: "/images/team/sherl.jpg",
     },
     {
       name: "Gen",
