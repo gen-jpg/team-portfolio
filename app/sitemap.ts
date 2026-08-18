@@ -1,9 +1,9 @@
 import type { MetadataRoute } from "next";
-import { solutions } from "@/lib/content";
+import { brand, solutions } from "@/lib/content";
 import { projects } from "@/lib/projects";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://studio.example";
+  const base = brand.siteUrl;
   const now = new Date();
 
   const staticRoutes = ["", "/services", "/solutions", "/work", "/about", "/contact"].map(

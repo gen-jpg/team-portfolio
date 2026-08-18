@@ -35,7 +35,7 @@ export function Navbar() {
             aria-hidden
             className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent font-display text-sm font-bold text-white"
           >
-            S
+            {brand.initials}
           </span>
           <span className="font-display text-base font-bold tracking-tight text-ink">
             {brand.name}

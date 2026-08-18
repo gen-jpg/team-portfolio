@@ -18,19 +18,19 @@ const body = Source_Sans_3({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://studio.example"),
+  metadataBase: new URL(brand.siteUrl),
   title: {
-    default: `${brand.name} — Custom Business Software`,
-    template: `%s | ${brand.name}`,
+    default: `${brand.fullName} — Custom Business Software`,
+    template: `%s | ${brand.fullName}`,
   },
   description:
-    "A small software studio that turns ideas and manual processes into reliable custom systems—business analysis, development, QA, and documentation.",
+    "A small software team that turns ideas and manual processes into reliable custom systems—business analysis, development, QA, and documentation.",
   openGraph: {
-    title: `${brand.name} — Custom Business Software`,
+    title: `${brand.fullName} — Custom Business Software`,
     description:
       "From requirements and MVP planning to development, QA, and launch.",
     type: "website",
-    siteName: brand.name,
+    siteName: brand.fullName,
   },
 };
 

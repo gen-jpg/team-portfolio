@@ -9,7 +9,7 @@ export function Footer() {
           <div className="space-y-4">
             <Link href="/" className="flex items-center gap-2.5">
               <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent font-display text-sm font-bold text-white">
-                S
+                {brand.initials}
               </span>
               <span className="font-display text-base font-bold">
                 {brand.name}
@@ -95,8 +95,7 @@ export function Footer() {
 
         <div className="mt-14 flex flex-col gap-3 border-t border-white/10 pt-8 text-xs text-cream/50 sm:flex-row sm:items-center sm:justify-between">
           <p>
-            © {new Date().getFullYear()} {brand.name} {brand.placeholder}.{" "}
-            {brand.tagline}
+            © {new Date().getFullYear()} {brand.fullName}. {brand.tagline}
           </p>
           <p>Custom Business Systems · MVP Development · Booking · Commerce · Inventory</p>
         </div>

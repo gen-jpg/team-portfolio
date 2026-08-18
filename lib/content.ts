@@ -1,6 +1,9 @@
 export const brand = {
-  name: "Studio",
-  placeholder: "[Brand]",
+  name: "Habi³",
+  placeholder: "by ASG",
+  fullName: "Habi³ by ASG",
+  initials: "H",
+  siteUrl: "https://habibyasg.com",
   tagline: "From idea to working software.",
   competencies: [
     "Business Analysis",
@@ -463,6 +466,12 @@ export const team = {
       role: "Software Developer",
       bio: "Handles technical planning, system architecture, frontend and backend development, database implementation, integrations, deployment, and technical support.",
       initials: "GE",
+    },
+    {
+      name: "Arthur",
+      role: "Software Developer",
+      bio: "Specializes in frontend development and deployment—building responsive interfaces, implementing UI/UX designs, and shipping applications to production.",
+      initials: "AR",
     },
   ],
 };
