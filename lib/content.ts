@@ -3,7 +3,7 @@ export const brand = {
   placeholder: "by ASG",
   fullName: "HABI³ by ASG",
   initials: "H",
-  siteUrl: "https://habibyasg.com",
+  siteUrl: "https://habi-asg.com",
   tagline: "From idea to working software.",
   competencies: [
     "Business Analysis",
