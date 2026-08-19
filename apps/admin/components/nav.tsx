@@ -10,7 +10,7 @@ export async function Nav() {
 
   return (
     <header className="border-b border-gray-200 bg-white">
-      <div className="mx-auto flex h-14 max-w-5xl items-center justify-between px-4">
+      <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4">
         <Link href="/" className="text-sm font-bold tracking-tight">
           HABI³ <span className="font-normal text-gray-400">Admin</span>
         </Link>
