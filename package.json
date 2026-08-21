@@ -7,6 +7,8 @@
     "dev:admin": "npm -w apps/admin run dev",
     "build:web": "npm -w apps/web run build",
     "build:admin": "npm -w apps/admin run build",
+    "start:web": "npm -w apps/web run start",
+    "start:admin": "npm -w apps/admin run start",
     "lint": "npm -w apps/web run lint && npm -w apps/admin run lint"
   }
 }
