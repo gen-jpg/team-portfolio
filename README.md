@@ -1,42 +1,38 @@
-# Studio [Brand] — Marketing Site
+# HABI³ Monorepo
 
-Next.js + TypeScript marketing site for a small software development studio. Deployable on Vercel.
+Monorepo for the HABI³ by ASG marketing site and admin dashboard.
+
+## Apps
+
+| App | Path | URL | Purpose |
+|---|---|---|---|
+| web | `apps/web` | `habi-asg.com` | Public marketing site |
+| admin | `apps/admin` | `admin.habi-asg.com` | Internal inquiry dashboard |
 
 ## Getting started
 
 ```bash
-cd E:\team-portfolio
-cp .env.example .env.local
 npm install
-npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+### Marketing site
 
-## Routes
+```bash
+npm run dev:web        # http://localhost:3000
+npm run build:web
+```
 
-| Path | Purpose |
-|------|---------|
-| `/` | Main conversion page |
-| `/services` | What the team does |
-| `/solutions` | Systems you build |
-| `/solutions/[slug]` | Solution detail scaffolds |
-| `/work` | Portfolio placeholders |
-| `/work/[slug]` | Case-study scaffolds |
-| `/about` | Team & audiences |
-| `/contact` | Inquiry form |
+### Admin dashboard
 
-## Contact form
+```bash
+cp apps/admin/.env.example apps/admin/.env.local
+# Fill in Supabase URL and key (same project as web)
+npm run dev:admin      # http://localhost:3001
+npm run build:admin
+```
 
-Submits:
+## Shared database
 
-1. Optional insert into Supabase `inquiries` when `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` are set
-2. Opens a composed `mailto:` using `NEXT_PUBLIC_CONTACT_EMAIL`
+Both apps connect to the same Supabase project. The marketing site inserts into the `inquiries` table. The admin app reads inquiries, updates status, and manages internal notes.
 
-## Brand placeholder
-
-Search for `Studio` and `[Brand]` in `lib/content.ts` when the real name is decided.
-
-## Deploy
-
-Connect the repo to Vercel, set env vars, and deploy.
+See `docs/admin-site-plan.md` for the full architecture plan.
